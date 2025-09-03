@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# yank-kitty: Copy local Kitty configuration to the kitty folder
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+KITTY_CONFIG_DIR="$HOME/.config/kitty"
+KITTY_TARGET_DIR="$SCRIPT_DIR/kitty"
+
+echo "Copying $KITTY_CONFIG_DIR -> $KITTY_TARGET_DIR"
+
+rm -rf "$KITTY_TARGET_DIR"
+cp -r "$KITTY_CONFIG_DIR" "$KITTY_TARGET_DIR"
+
+echo "✓ Done!"
